@@ -39,7 +39,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE OVERLAY ── */
   body::before {
     content: '';
     position: fixed;
@@ -50,7 +49,6 @@
     z-index: 0;
   }
 
-  /* ── SIDEBAR ── */
   .sidebar {
     position: fixed;
     top: 0; left: 0; bottom: 0;
@@ -175,7 +173,6 @@
     font-family: 'DM Mono', monospace;
   }
 
-  /* ── MAIN AREA ── */
   .main {
     margin-left: 240px;
     min-height: 100vh;
@@ -185,7 +182,6 @@
     z-index: 1;
   }
 
-  /* ── TOPBAR ── */
   .topbar {
     position: sticky; top: 0;
     background: rgba(8,8,9,0.85);
@@ -258,13 +254,11 @@
 
   .clear-done-btn:hover { border-color: #fb7185; color: #fb7185; }
 
-  /* ── CONTENT ── */
   .content {
     padding: 36px 36px 80px;
     flex: 1;
   }
 
-  /* ── PAGE HEADER ── */
   .page-header {
     margin-bottom: 32px;
     animation: fadeUp 0.4s ease both;
@@ -285,7 +279,6 @@
     color: var(--text2);
   }
 
-  /* ── RAINBOW PROGRESS BAR ── */
   .progress-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -330,14 +323,8 @@
     height: 100%;
     border-radius: 99px;
     background: linear-gradient(90deg,
-      #fb7185 0%,
-      #f97316 14%,
-      #fbbf24 28%,
-      #34d399 42%,
-      #4facfe 57%,
-      #818cf8 71%,
-      #c084fc 85%,
-      #fb7185 100%
+      #fb7185 0%, #f97316 14%, #fbbf24 28%, #34d399 42%,
+      #4facfe 57%, #818cf8 71%, #c084fc 85%, #fb7185 100%
     );
     background-size: 200% 100%;
     animation: shimmer 3s linear infinite;
@@ -372,7 +359,6 @@
     color: var(--text3);
   }
 
-  /* ── STATS ROW ── */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -400,9 +386,9 @@
     height: 2px;
   }
 
-  .stat-card.s-total::before { background: linear-gradient(90deg, #4facfe, #c084fc); }
-  .stat-card.s-done::before  { background: linear-gradient(90deg, #34d399, #4facfe); }
-  .stat-card.s-left::before  { background: linear-gradient(90deg, #fbbf24, #fb7185); }
+  .stat-card.s-total::before  { background: linear-gradient(90deg, #4facfe, #c084fc); }
+  .stat-card.s-done::before   { background: linear-gradient(90deg, #34d399, #4facfe); }
+  .stat-card.s-left::before   { background: linear-gradient(90deg, #fbbf24, #fb7185); }
   .stat-card.s-urgent::before { background: #fb7185; }
   .stat-card.s-streak::before { background: linear-gradient(90deg, #fbbf24, #f97316); }
 
@@ -421,7 +407,6 @@
     letter-spacing: 0.3px;
   }
 
-  /* ── ADD TASK ── */
   .add-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -474,6 +459,7 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .add-row2 label {
@@ -495,11 +481,7 @@
     font-size: 13px;
     outline: none;
     cursor: pointer;
-    transition: border-color 0.15s;
   }
-
-  .add-row2 select:focus,
-  .add-row2 input[type="date"]:focus { border-color: var(--border2); }
 
   .add-row2 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(0.6);
@@ -524,15 +506,11 @@
     transition: all 0.15s;
   }
 
-  .priority-btn.sel-low { border-color: #34d399; color: #34d399; background: rgba(52,211,153,0.08); }
-  .priority-btn.sel-med { border-color: #fbbf24; color: #fbbf24; background: rgba(251,191,36,0.08); }
+  .priority-btn.sel-low  { border-color: #34d399; color: #34d399; background: rgba(52,211,153,0.08); }
+  .priority-btn.sel-med  { border-color: #fbbf24; color: #fbbf24; background: rgba(251,191,36,0.08); }
   .priority-btn.sel-high { border-color: #fb7185; color: #fb7185; background: rgba(251,113,133,0.08); }
-  .priority-btn:hover:not([class*="sel-"]) { border-color: var(--border2); }
 
-  /* ── TASK LIST ── */
-  .tasks-section {
-    animation: fadeUp 0.4s 0.2s ease both;
-  }
+  .tasks-section { animation: fadeUp 0.4s 0.2s ease both; }
 
   .section-header {
     display: flex;
@@ -594,7 +572,7 @@
     width: 3px;
   }
 
-  .task-item.cat-work::before    { background: var(--c-work); }
+  .task-item.cat-work::before     { background: var(--c-work); }
   .task-item.cat-personal::before { background: var(--c-personal); }
   .task-item.cat-urgent::before   { background: var(--c-urgent); }
   .task-item.cat-health::before   { background: var(--c-health); }
@@ -603,12 +581,8 @@
 
   .task-item:hover { border-color: var(--border2); transform: translateX(2px); }
   .task-item.done  { opacity: 0.4; }
-  .task-item.done:hover { opacity: 0.55; }
   .task-item.done .task-text { text-decoration: line-through; color: var(--text3); }
-
-  .task-item.overdue:not(.done) {
-    border-color: rgba(251,113,133,0.25);
-  }
+  .task-item.overdue:not(.done) { border-color: rgba(251,113,133,0.25); }
 
   .check-btn {
     width: 22px; height: 22px;
@@ -619,16 +593,10 @@
     flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
     transition: all 0.2s;
-    position: relative;
   }
 
   .check-btn:hover { border-color: #34d399; }
-
-  .check-btn.checked {
-    background: #34d399;
-    border-color: #34d399;
-  }
-
+  .check-btn.checked { background: #34d399; border-color: #34d399; }
   .check-btn.checked::after {
     content: '';
     width: 5px; height: 9px;
@@ -661,15 +629,14 @@
     font-family: 'DM Mono', monospace;
     padding: 2px 8px;
     border-radius: 99px;
-    font-weight: 500;
   }
 
-  .badge-work     { background: rgba(79,172,254,0.12); color: #4facfe; }
+  .badge-work     { background: rgba(79,172,254,0.12);  color: #4facfe; }
   .badge-personal { background: rgba(192,132,252,0.12); color: #c084fc; }
   .badge-urgent   { background: rgba(251,113,133,0.12); color: #fb7185; }
-  .badge-health   { background: rgba(52,211,153,0.12); color: #34d399; }
-  .badge-learning { background: rgba(251,191,36,0.12); color: #fbbf24; }
-  .badge-other    { background: rgba(156,163,175,0.1); color: #9ca3af; }
+  .badge-health   { background: rgba(52,211,153,0.12);  color: #34d399; }
+  .badge-learning { background: rgba(251,191,36,0.12);  color: #fbbf24; }
+  .badge-other    { background: rgba(156,163,175,0.1);  color: #9ca3af; }
 
   .priority-pip {
     font-size: 10px;
@@ -678,16 +645,11 @@
     font-family: 'DM Mono', monospace;
   }
 
-  .pip-low  { background: rgba(52,211,153,0.1); color: #34d399; }
-  .pip-med  { background: rgba(251,191,36,0.1);  color: #fbbf24; }
-  .pip-high { background: rgba(251,113,133,0.1); color: #fb7185; }
+  .pip-low  { background: rgba(52,211,153,0.1);  color: #34d399; }
+  .pip-med  { background: rgba(251,191,36,0.1);   color: #fbbf24; }
+  .pip-high { background: rgba(251,113,133,0.1);  color: #fb7185; }
 
-  .task-due {
-    font-size: 11px;
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
-  }
-
+  .task-due { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; }
   .task-due.overdue-label { color: #fb7185; }
 
   .task-actions {
@@ -713,10 +675,9 @@
     display: flex; align-items: center; justify-content: center;
   }
 
-  .action-btn:hover.del { color: #fb7185; background: rgba(251,113,133,0.1); }
+  .action-btn:hover.del  { color: #fb7185; background: rgba(251,113,133,0.1); }
   .action-btn:hover.edit { color: #4facfe; background: rgba(79,172,254,0.1); }
 
-  /* ── EMPTY STATE ── */
   .empty-state {
     text-align: center;
     padding: 64px 24px;
@@ -726,7 +687,6 @@
   .empty-state .big { font-size: 48px; margin-bottom: 12px; }
   .empty-state p { font-size: 14px; line-height: 1.6; }
 
-  /* ── CATEGORY BREAKDOWN ── */
   .breakdown-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -746,18 +706,9 @@
 
   .breakdown-rows { display: flex; flex-direction: column; gap: 12px; }
 
-  .breakdown-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  .breakdown-row { display: flex; align-items: center; gap: 12px; }
 
-  .bd-label {
-    font-size: 13px;
-    color: var(--text2);
-    width: 80px;
-    flex-shrink: 0;
-  }
+  .bd-label { font-size: 13px; color: var(--text2); width: 80px; flex-shrink: 0; }
 
   .bd-track {
     flex: 1;
@@ -767,11 +718,7 @@
     overflow: hidden;
   }
 
-  .bd-fill {
-    height: 100%;
-    border-radius: 99px;
-    transition: width 0.5s ease;
-  }
+  .bd-fill { height: 100%; border-radius: 99px; transition: width 0.5s ease; }
 
   .bd-count {
     font-size: 12px;
@@ -782,13 +729,11 @@
     flex-shrink: 0;
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── MODAL (EDIT) ── */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -890,7 +835,6 @@
 
   .modal-save:hover { opacity: 0.85; }
 
-  /* ── MOBILE ── */
   .hamburger {
     display: none;
     position: fixed;
@@ -906,11 +850,7 @@
   }
 
   @media (max-width: 768px) {
-    .sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-
+    .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
     .sidebar.open { transform: translateX(0); }
     .main { margin-left: 0; }
     .hamburger { display: flex; align-items: center; }
@@ -925,7 +865,6 @@
 
 <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 
-<!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-mark">
@@ -934,82 +873,58 @@
     </div>
     <div class="logo-sub">Personal Command Center</div>
   </div>
-
   <nav class="sidebar-nav">
     <div class="nav-section-label">Views</div>
-
     <button class="nav-btn active" onclick="setView('all', this)">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       All Tasks
       <span class="nav-count" id="cnt-all">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('active', this)">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       Active
       <span class="nav-count" id="cnt-active">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('done', this)">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       Completed
       <span class="nav-count" id="cnt-done">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('overdue', this)">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       Overdue
       <span class="nav-count" id="cnt-overdue">0</span>
     </button>
-
     <div class="nav-section-label">Categories</div>
-
     <button class="nav-btn" onclick="setView('work', this)">
       <div class="cat-dot" style="background: var(--c-work)"></div>
-      Work
-      <span class="nav-count" id="cnt-work">0</span>
+      Work <span class="nav-count" id="cnt-work">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('personal', this)">
       <div class="cat-dot" style="background: var(--c-personal)"></div>
-      Personal
-      <span class="nav-count" id="cnt-personal">0</span>
+      Personal <span class="nav-count" id="cnt-personal">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('urgent', this)">
       <div class="cat-dot" style="background: var(--c-urgent)"></div>
-      Urgent
-      <span class="nav-count" id="cnt-urgent">0</span>
+      Urgent <span class="nav-count" id="cnt-urgent">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('health', this)">
       <div class="cat-dot" style="background: var(--c-health)"></div>
-      Health
-      <span class="nav-count" id="cnt-health">0</span>
+      Health <span class="nav-count" id="cnt-health">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('learning', this)">
       <div class="cat-dot" style="background: var(--c-learning)"></div>
-      Learning
-      <span class="nav-count" id="cnt-learning">0</span>
+      Learning <span class="nav-count" id="cnt-learning">0</span>
     </button>
-
     <button class="nav-btn" onclick="setView('other', this)">
       <div class="cat-dot" style="background: var(--c-other)"></div>
-      Other
-      <span class="nav-count" id="cnt-other">0</span>
+      Other <span class="nav-count" id="cnt-other">0</span>
     </button>
   </nav>
-
-  <div class="sidebar-footer" id="sidebar-footer">
-    ● 0 tasks total
-  </div>
+  <div class="sidebar-footer" id="sidebar-footer">● 0 tasks total</div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
-
-  <!-- TOPBAR -->
   <header class="topbar">
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1021,16 +936,12 @@
     </div>
   </header>
 
-  <!-- CONTENT -->
   <div class="content">
-
-    <!-- PAGE HEADER -->
     <div class="page-header">
       <h1 class="page-title" id="page-title">All Tasks</h1>
       <p class="page-sub" id="page-sub">Everything on your plate</p>
     </div>
 
-    <!-- PROGRESS -->
     <div class="progress-card">
       <div class="progress-header">
         <span class="progress-title">Today's Progress</span>
@@ -1048,39 +959,21 @@
       </div>
     </div>
 
-    <!-- STATS -->
     <div class="stats-grid">
-      <div class="stat-card s-total">
-        <div class="stat-num" id="st-total">0</div>
-        <div class="stat-label">Total Tasks</div>
-      </div>
-      <div class="stat-card s-done">
-        <div class="stat-num" id="st-done">0</div>
-        <div class="stat-label">Completed</div>
-      </div>
-      <div class="stat-card s-left">
-        <div class="stat-num" id="st-left">0</div>
-        <div class="stat-label">Remaining</div>
-      </div>
-      <div class="stat-card s-urgent">
-        <div class="stat-num" id="st-urgent">0</div>
-        <div class="stat-label">Urgent</div>
-      </div>
-      <div class="stat-card s-streak">
-        <div class="stat-num" id="st-overdue">0</div>
-        <div class="stat-label">Overdue</div>
-      </div>
+      <div class="stat-card s-total"><div class="stat-num" id="st-total">0</div><div class="stat-label">Total Tasks</div></div>
+      <div class="stat-card s-done"><div class="stat-num" id="st-done">0</div><div class="stat-label">Completed</div></div>
+      <div class="stat-card s-left"><div class="stat-num" id="st-left">0</div><div class="stat-label">Remaining</div></div>
+      <div class="stat-card s-urgent"><div class="stat-num" id="st-urgent">0</div><div class="stat-label">Urgent</div></div>
+      <div class="stat-card s-streak"><div class="stat-num" id="st-overdue">0</div><div class="stat-label">Overdue</div></div>
     </div>
 
-    <!-- ADD TASK -->
     <div class="add-card">
       <div class="add-row1">
         <input type="text" class="add-input" id="add-input" placeholder="What needs to be done?" maxlength="150">
         <button class="add-btn" onclick="addTask()">+ Add Task</button>
       </div>
       <div class="add-row2">
-        <label>
-          Category
+        <label>Category
           <select id="add-cat">
             <option value="work">💼 Work</option>
             <option value="personal">💜 Personal</option>
@@ -1090,10 +983,7 @@
             <option value="other">· Other</option>
           </select>
         </label>
-        <label>
-          Due date
-          <input type="date" id="add-due">
-        </label>
+        <label>Due date <input type="date" id="add-due"></label>
         <label>Priority</label>
         <div class="priority-wrap" id="priority-wrap">
           <button class="priority-btn sel-low" onclick="setPriority('low', this)">Low</button>
@@ -1103,7 +993,6 @@
       </div>
     </div>
 
-    <!-- TASKS -->
     <div class="tasks-section">
       <div class="section-header">
         <span class="section-title" id="section-label">Tasks</span>
@@ -1122,16 +1011,13 @@
       </div>
     </div>
 
-    <!-- CATEGORY BREAKDOWN -->
     <div class="breakdown-card">
       <div class="breakdown-title">Category Breakdown</div>
       <div class="breakdown-rows" id="breakdown-rows"></div>
     </div>
-
   </div>
 </main>
 
-<!-- EDIT MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-title">Edit Task</div>
@@ -1170,7 +1056,6 @@
 </div>
 
 <script>
-  // ── STATE ──
   let tasks = JSON.parse(localStorage.getItem('tb2_tasks') || '[]');
   let view = 'all';
   let selectedPriority = 'low';
@@ -1187,21 +1072,20 @@
   };
 
   const VIEW_META = {
-    all:      { title: 'All Tasks',      sub: 'Everything on your plate' },
-    active:   { title: 'Active Tasks',   sub: 'Things still in progress' },
-    done:     { title: 'Completed',      sub: 'Nice work — tasks you\'ve finished' },
-    overdue:  { title: 'Overdue',        sub: 'Tasks past their due date' },
-    work:     { title: 'Work',           sub: 'Professional tasks and projects' },
-    personal: { title: 'Personal',       sub: 'Life outside of work' },
-    urgent:   { title: 'Urgent',         sub: 'Needs immediate attention' },
-    health:   { title: 'Health',         sub: 'Fitness, wellness, and self-care' },
-    learning: { title: 'Learning',       sub: 'Study and skill-building' },
-    other:    { title: 'Other',          sub: 'Everything else' },
+    all:      { title: 'All Tasks',    sub: 'Everything on your plate' },
+    active:   { title: 'Active Tasks', sub: 'Things still in progress' },
+    done:     { title: 'Completed',    sub: "Tasks you've finished" },
+    overdue:  { title: 'Overdue',      sub: 'Tasks past their due date' },
+    work:     { title: 'Work',         sub: 'Professional tasks and projects' },
+    personal: { title: 'Personal',     sub: 'Life outside of work' },
+    urgent:   { title: 'Urgent',       sub: 'Needs immediate attention' },
+    health:   { title: 'Health',       sub: 'Fitness, wellness, and self-care' },
+    learning: { title: 'Learning',     sub: 'Study and skill-building' },
+    other:    { title: 'Other',        sub: 'Everything else' },
   };
 
   function save() { localStorage.setItem('tb2_tasks', JSON.stringify(tasks)); }
-
-  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  function uid()  { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 
   function isOverdue(task) {
     if (!task.due || task.done) return false;
@@ -1210,71 +1094,55 @@
 
   function getFiltered() {
     const q = document.getElementById('search-input').value.trim().toLowerCase();
-    const today = new Date().toISOString().split('T')[0];
     let result = tasks.filter(t => {
       if (q && !t.text.toLowerCase().includes(q)) return false;
-      if (view === 'active') return !t.done;
-      if (view === 'done') return t.done;
+      if (view === 'active')  return !t.done;
+      if (view === 'done')    return t.done;
       if (view === 'overdue') return isOverdue(t);
       if (['work','personal','urgent','health','learning','other'].includes(view)) return t.cat === view;
       return true;
     });
-
     const sort = document.getElementById('sort-select').value;
-    if (sort === 'oldest') result = result.sort((a,b) => a.ts - b.ts);
-    else if (sort === 'newest') result = result.sort((a,b) => b.ts - a.ts);
-    else if (sort === 'priority') {
-      const p = {high:0, med:1, low:2};
-      result = result.sort((a,b) => (p[a.priority]||2) - (p[b.priority]||2));
-    } else if (sort === 'due') {
-      result = result.sort((a,b) => {
-        if (!a.due && !b.due) return 0;
-        if (!a.due) return 1;
-        if (!b.due) return -1;
-        return a.due.localeCompare(b.due);
-      });
-    } else if (sort === 'alpha') {
-      result = result.sort((a,b) => a.text.localeCompare(b.text));
-    }
-
+    if (sort === 'oldest')   result.sort((a,b) => a.ts - b.ts);
+    else if (sort === 'newest')   result.sort((a,b) => b.ts - a.ts);
+    else if (sort === 'priority') { const p={high:0,med:1,low:2}; result.sort((a,b) => (p[a.priority]||2)-(p[b.priority]||2)); }
+    else if (sort === 'due') result.sort((a,b) => { if (!a.due&&!b.due) return 0; if (!a.due) return 1; if (!b.due) return -1; return a.due.localeCompare(b.due); });
+    else if (sort === 'alpha') result.sort((a,b) => a.text.localeCompare(b.text));
     return result;
   }
 
   function updateCounts() {
-    const today = new Date().toISOString().split('T')[0];
     document.getElementById('cnt-all').textContent      = tasks.length;
     document.getElementById('cnt-active').textContent   = tasks.filter(t => !t.done).length;
     document.getElementById('cnt-done').textContent     = tasks.filter(t => t.done).length;
     document.getElementById('cnt-overdue').textContent  = tasks.filter(isOverdue).length;
-    document.getElementById('cnt-work').textContent     = tasks.filter(t => t.cat === 'work').length;
-    document.getElementById('cnt-personal').textContent = tasks.filter(t => t.cat === 'personal').length;
-    document.getElementById('cnt-urgent').textContent   = tasks.filter(t => t.cat === 'urgent').length;
-    document.getElementById('cnt-health').textContent   = tasks.filter(t => t.cat === 'health').length;
-    document.getElementById('cnt-learning').textContent = tasks.filter(t => t.cat === 'learning').length;
-    document.getElementById('cnt-other').textContent    = tasks.filter(t => t.cat === 'other').length;
-    document.getElementById('sidebar-footer').textContent = '● ' + tasks.length + ' task' + (tasks.length === 1 ? '' : 's') + ' total';
+    document.getElementById('cnt-work').textContent     = tasks.filter(t => t.cat==='work').length;
+    document.getElementById('cnt-personal').textContent = tasks.filter(t => t.cat==='personal').length;
+    document.getElementById('cnt-urgent').textContent   = tasks.filter(t => t.cat==='urgent').length;
+    document.getElementById('cnt-health').textContent   = tasks.filter(t => t.cat==='health').length;
+    document.getElementById('cnt-learning').textContent = tasks.filter(t => t.cat==='learning').length;
+    document.getElementById('cnt-other').textContent    = tasks.filter(t => t.cat==='other').length;
+    document.getElementById('sidebar-footer').textContent = '● ' + tasks.length + ' task' + (tasks.length===1?'':'s') + ' total';
   }
 
   function updateStats() {
-    const total = tasks.length;
-    const done = tasks.filter(t => t.done).length;
-    const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+    const total = tasks.length, done = tasks.filter(t => t.done).length;
+    const pct = total === 0 ? 0 : Math.round((done/total)*100);
     document.getElementById('bar-fill').style.width = pct + '%';
-    document.getElementById('pct-num').textContent = pct + '%';
-    document.getElementById('st-total').textContent = total;
-    document.getElementById('st-done').textContent = done;
-    document.getElementById('st-left').textContent = total - done;
-    document.getElementById('st-urgent').textContent = tasks.filter(t => t.cat === 'urgent' && !t.done).length;
-    document.getElementById('st-overdue').textContent = tasks.filter(isOverdue).length;
+    document.getElementById('pct-num').textContent  = pct + '%';
+    document.getElementById('st-total').textContent  = total;
+    document.getElementById('st-done').textContent   = done;
+    document.getElementById('st-left').textContent   = total - done;
+    document.getElementById('st-urgent').textContent = tasks.filter(t => t.cat==='urgent'&&!t.done).length;
+    document.getElementById('st-overdue').textContent= tasks.filter(isOverdue).length;
   }
 
   function updateBreakdown() {
     const cats = ['work','personal','urgent','health','learning','other'];
     const total = tasks.length || 1;
-    const rows = document.getElementById('breakdown-rows');
-    rows.innerHTML = cats.map(c => {
-      const count = tasks.filter(t => t.cat === c).length;
-      const pct = Math.round((count / total) * 100);
+    document.getElementById('breakdown-rows').innerHTML = cats.map(c => {
+      const count = tasks.filter(t => t.cat===c).length;
+      const pct = Math.round((count/total)*100);
       return `<div class="breakdown-row">
         <span class="bd-label">${CAT_LABELS[c]}</span>
         <div class="bd-track"><div class="bd-fill" style="width:${pct}%;background:${CAT_COLORS[c]}"></div></div>
@@ -1292,51 +1160,45 @@
     const d = new Date(due + 'T12:00:00');
     const today = new Date(); today.setHours(0,0,0,0);
     const diff = Math.round((d - today) / 86400000);
-    if (diff === 0) return 'Due today';
-    if (diff === 1) return 'Due tomorrow';
+    if (diff === 0)  return 'Due today';
+    if (diff === 1)  return 'Due tomorrow';
     if (diff === -1) return 'Due yesterday';
-    if (diff < 0) return `${Math.abs(diff)}d overdue`;
+    if (diff < 0)    return Math.abs(diff) + 'd overdue';
     return d.toLocaleDateString('en-US', { month:'short', day:'numeric' });
   }
 
   function render() {
-    updateStats();
-    updateCounts();
-    updateBreakdown();
-
+    updateStats(); updateCounts(); updateBreakdown();
     const meta = VIEW_META[view] || VIEW_META.all;
-    document.getElementById('page-title').textContent = meta.title;
-    document.getElementById('page-sub').textContent = meta.sub;
+    document.getElementById('page-title').textContent  = meta.title;
+    document.getElementById('page-sub').textContent    = meta.sub;
     document.getElementById('section-label').textContent = meta.title;
-
     const filtered = getFiltered();
-    const list = document.getElementById('tasks-list');
+    const list  = document.getElementById('tasks-list');
     const empty = document.getElementById('empty-state');
-
     if (filtered.length === 0) {
-      list.innerHTML = '';
-      empty.style.display = 'block';
+      list.innerHTML = ''; empty.style.display = 'block';
     } else {
       empty.style.display = 'none';
       list.innerHTML = filtered.map(t => {
         const over = isOverdue(t);
         const dueStr = formatDue(t.due);
         const dueClass = over && !t.done ? 'overdue-label' : '';
-        return `<div class="task-item cat-${t.cat}${t.done ? ' done' : ''}${over && !t.done ? ' overdue' : ''}" data-id="${t.id}">
-          <button class="check-btn${t.done ? ' checked' : ''}" onclick="toggle('${t.id}')" aria-label="Toggle done"></button>
+        return `<div class="task-item cat-${t.cat}${t.done?' done':''}${over&&!t.done?' overdue':''}">
+          <button class="check-btn${t.done?' checked':''}" onclick="toggle('${t.id}')" aria-label="Toggle done"></button>
           <div class="task-body">
             <div class="task-text">${escHtml(t.text)}</div>
             <div class="task-meta">
               <span class="task-badge badge-${t.cat}">${CAT_LABELS[t.cat]}</span>
-              ${t.priority && t.priority !== 'low' ? `<span class="priority-pip pip-${t.priority}">${t.priority === 'med' ? 'Medium' : 'High'}</span>` : ''}
-              ${t.due ? `<span class="task-due ${dueClass}">${dueStr}</span>` : ''}
+              ${t.priority&&t.priority!=='low'?`<span class="priority-pip pip-${t.priority}">${t.priority==='med'?'Medium':'High'}</span>`:''}
+              ${t.due?`<span class="task-due ${dueClass}">${dueStr}</span>`:''}
             </div>
           </div>
           <div class="task-actions">
-            <button class="action-btn edit" onclick="openEdit('${t.id}')" aria-label="Edit" title="Edit">
+            <button class="action-btn edit" onclick="openEdit('${t.id}')" title="Edit">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </button>
-            <button class="action-btn del" onclick="del('${t.id}')" aria-label="Delete" title="Delete">
+            <button class="action-btn del" onclick="del('${t.id}')" title="Delete">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
             </button>
           </div>
@@ -1349,35 +1211,31 @@
     const inp = document.getElementById('add-input');
     const text = inp.value.trim();
     if (!text) { inp.focus(); return; }
-    const cat = document.getElementById('add-cat').value;
-    const due = document.getElementById('add-due').value;
     tasks.unshift({
-      id: uid(), text, cat, done: false,
+      id: uid(), text,
+      cat: document.getElementById('add-cat').value,
+      done: false,
       priority: selectedPriority,
-      due: due || null,
+      due: document.getElementById('add-due').value || null,
       ts: Date.now()
     });
     save(); render();
-    inp.value = '';
-    inp.focus();
+    inp.value = ''; inp.focus();
   }
 
   function toggle(id) {
-    const t = tasks.find(t => t.id === id);
+    const t = tasks.find(t => t.id===id);
     if (t) { t.done = !t.done; save(); render(); }
   }
 
   function del(id) {
-    tasks = tasks.filter(t => t.id !== id);
+    tasks = tasks.filter(t => t.id!==id);
     save(); render();
   }
 
   function clearDone() {
     if (!tasks.some(t => t.done)) return;
-    if (confirm('Remove all completed tasks?')) {
-      tasks = tasks.filter(t => !t.done);
-      save(); render();
-    }
+    if (confirm('Remove all completed tasks?')) { tasks = tasks.filter(t => !t.done); save(); render(); }
   }
 
   function setView(v, btn) {
@@ -1390,20 +1248,18 @@
 
   function setPriority(p, btn) {
     selectedPriority = p;
-    document.querySelectorAll('.priority-btn').forEach(b => {
-      b.className = 'priority-btn';
-    });
+    document.querySelectorAll('.priority-btn').forEach(b => b.className = 'priority-btn');
     btn.classList.add('sel-' + p);
   }
 
   function openEdit(id) {
-    const t = tasks.find(t => t.id === id);
+    const t = tasks.find(t => t.id===id);
     if (!t) return;
     editId = id;
-    document.getElementById('edit-text').value = t.text;
-    document.getElementById('edit-cat').value = t.cat;
+    document.getElementById('edit-text').value     = t.text;
+    document.getElementById('edit-cat').value      = t.cat;
     document.getElementById('edit-priority').value = t.priority || 'low';
-    document.getElementById('edit-due').value = t.due || '';
+    document.getElementById('edit-due').value      = t.due || '';
     document.getElementById('modal').classList.add('open');
   }
 
@@ -1413,14 +1269,14 @@
   }
 
   function saveEdit() {
-    const t = tasks.find(t => t.id === editId);
+    const t = tasks.find(t => t.id===editId);
     if (!t) return;
     const text = document.getElementById('edit-text').value.trim();
     if (!text) return;
-    t.text = text;
-    t.cat = document.getElementById('edit-cat').value;
+    t.text     = text;
+    t.cat      = document.getElementById('edit-cat').value;
     t.priority = document.getElementById('edit-priority').value;
-    t.due = document.getElementById('edit-due').value || null;
+    t.due      = document.getElementById('edit-due').value || null;
     save(); render(); closeModal();
   }
 
@@ -1428,27 +1284,22 @@
     document.getElementById('sidebar').classList.toggle('open');
   }
 
-  // Keyboard shortcuts
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
-    if ((e.key === 'Enter') && document.activeElement === document.getElementById('add-input')) addTask();
+    if (e.key === 'Enter' && document.activeElement === document.getElementById('add-input')) addTask();
     if (e.key === 'n' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) {
       document.getElementById('add-input').focus();
     }
   });
 
-  // Close modal on overlay click
   document.getElementById('modal').addEventListener('click', e => {
     if (e.target === document.getElementById('modal')) closeModal();
   });
 
-  // Date display
-  const now = new Date();
-  document.getElementById('topbar-date').textContent = now.toLocaleDateString('en-US', {
+  document.getElementById('topbar-date').textContent = new Date().toLocaleDateString('en-US', {
     weekday: 'short', month: 'short', day: 'numeric'
   });
 
-  // Initial render
   render();
 </script>
 </body>
